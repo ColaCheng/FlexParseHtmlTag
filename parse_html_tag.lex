@@ -8,11 +8,11 @@
 
 %option noyywrap
 
-TAG1     ([<][!]?[a-zA-Z0-9 ]*[>])*|([<][a-z0-9]*[ ]?[a-z]*[\(\)\/=a-zA-Z0-9"_\^\*.# ;:-]*[>])*
+TAG     ([<][!]?[^>]*[>])*
 
 %%
 
-{TAG1}        printf( "A HTML tag: %s\n", yytext );
+{TAG}        printf( "A HTML tag: %s\n", yytext );
 
 "{"[^}\n]*"}"     /* eat up one-line comments */
 
